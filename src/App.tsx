@@ -25,8 +25,8 @@ const App = () => {
         const patients = await patientService.getAll();
         setPatients(patients);
       } catch (error) {
-        console.log(error
-                    }
+        console.log(error);
+        };
     };
     void fetchPatientList();
   }, []);
