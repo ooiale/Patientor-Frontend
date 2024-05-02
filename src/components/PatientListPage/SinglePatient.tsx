@@ -17,8 +17,6 @@ const SinglePatient =  () => {
 
   const id = useParams().id as string;
 
-  console.log('RENDER');
-
   useEffect(() => {
     const fetchPatient = async () => {
       try {
