@@ -1,4 +1,4 @@
-import { Button, Divider, Container, Typography } from '@mui/material';
+import { Button, Divider, Container, Typography, Alert } from '@mui/material';
 
 import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
@@ -25,11 +25,23 @@ const App = () => {
         const patients = await patientService.getAll();
         setPatients(patients);
       } catch (error) {
-        console.log(error);
-        };
+        if (axios.isAxiosError(error)) {
+          console.log(error.response?.data);
+        } else {
+          console.log('something went wrong');
+          }
+        }
     };
     void fetchPatientList();
   }, []);
+
+  const failedToFetch = () => {
+    return (
+      <Alert severity="error" style={{ marginTop: '1em' }}>
+        Failed to fetch data from the backend. Please check your connection or try again later.
+      </Alert>
+    );
+  };
   
   return (
     <div className="App">
@@ -46,6 +58,7 @@ const App = () => {
             <Route path="/" element={<PatientListPage patients={patients} setPatients={setPatients} />} />
             <Route path="/patients/:id" element = {<SinglePatient />}/>
           </Routes>
+          {patients.length === 0 ? failedToFetch() : null}
         </Container>
       </Router>
     </div>
