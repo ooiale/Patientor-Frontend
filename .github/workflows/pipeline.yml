@@ -6,7 +6,7 @@ on:
       - '*'
 
 jobs:
-  build:
+  deployment_pipeline:
     runs-on: ubuntu-latest
 
     steps:
@@ -24,3 +24,14 @@ jobs:
         run: npx playwright install 
       - name: Run Playwright tests
         run: npm run test
+
+  version_control:
+    needs: [deployment_pipeline]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Bump version and push tag
+        uses: anothrNick/github-tag-action@1.70.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DEFAULT_BUMP: patch
