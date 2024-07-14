@@ -1,4 +1,4 @@
-import { TextField, InputLabel, Box } from '@mui/material';
+import { TextField, InputLabel, Box } from '@mui/material'
 
 interface Props {
   employerName: string
@@ -9,7 +9,7 @@ interface Props {
   setSickEnd: React.Dispatch<React.SetStateAction<string>>
 }
 
-const OccupationalHealthcareForm = ({employerName, sickStart, sickEnd, setEmployerName, setSickStart, setSickEnd}: Props) => {
+const OccupationalHealthcareForm = ({ employerName, sickStart, sickEnd, setEmployerName, setSickStart, setSickEnd }: Props) => {
 
   return (
     <>
@@ -21,7 +21,7 @@ const OccupationalHealthcareForm = ({employerName, sickStart, sickEnd, setEmploy
         value={employerName}
         onChange={(e) => setEmployerName(e.target.value)}
         fullWidth
-        />
+      />
       <InputLabel htmlFor="sickStart-input">sick leave start date</InputLabel>
       <TextField
         id='sickStart-input'
@@ -39,7 +39,7 @@ const OccupationalHealthcareForm = ({employerName, sickStart, sickEnd, setEmploy
         fullWidth
       />
     </>
-  );
-};
+  )
+}
 
-export default OccupationalHealthcareForm;
+export default OccupationalHealthcareForm

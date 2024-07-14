@@ -1,4 +1,4 @@
-import { TextField, InputLabel } from '@mui/material';
+import { TextField, InputLabel } from '@mui/material'
 
 interface Props {
   dischargeDate: string
@@ -7,7 +7,7 @@ interface Props {
   setDischargeCriteria: React.Dispatch<React.SetStateAction<string>>
 }
 
-const HospitalEntryForm = ({dischargeDate, dischargeCriteria,setDischargeDate, setDischargeCriteria}: Props) => {
+const HospitalEntryForm = ({ dischargeDate, dischargeCriteria,setDischargeDate, setDischargeCriteria }: Props) => {
   return (
     <>
       <InputLabel htmlFor="dischargeDate-input">discharge date</InputLabel>
@@ -24,9 +24,9 @@ const HospitalEntryForm = ({dischargeDate, dischargeCriteria,setDischargeDate, s
         value={dischargeCriteria}
         onChange={(e) => setDischargeCriteria(e.target.value)}
         fullWidth
-        />
+      />
     </>
-  );
-};
+  )
+}
 
-export default HospitalEntryForm;
+export default HospitalEntryForm

@@ -1,22 +1,22 @@
-import { Box, Typography } from '@mui/material';
-import WorkOutlineIcon from '@mui/icons-material/WorkOutline';
+import { Box, Typography } from '@mui/material'
+import WorkOutlineIcon from '@mui/icons-material/WorkOutline'
 
-import DisplayDiagnosisCodes from "./DisplayDiagnosisCodes";
+import DisplayDiagnosisCodes from './DisplayDiagnosisCodes'
 
-import { OccupationalHealthcareEntry } from "../../types";
+import { OccupationalHealthcareEntry } from '../../types'
 
 
-const OccupationalHealthcareEntryInfo = ({entry}: {entry: OccupationalHealthcareEntry}) => {
+const OccupationalHealthcareEntryInfo = ({ entry }: {entry: OccupationalHealthcareEntry}) => {
 
   const containerStyle = {
     border: '1px solid black',
     padding: '10px',
     marginBottom: '10px'
-  };
+  }
 
   const itemsStyle = {
     marginBottom: '1px'
-  };
+  }
 
   return (
     <Box style = {containerStyle}>
@@ -32,7 +32,7 @@ const OccupationalHealthcareEntryInfo = ({entry}: {entry: OccupationalHealthcare
         {entry.diagnosisCodes ? <DisplayDiagnosisCodes diagnosisCodes={entry.diagnosisCodes} /> : null}
       </div>
     </Box>
-  );
-};
+  )
+}
 
-export default OccupationalHealthcareEntryInfo;
+export default OccupationalHealthcareEntryInfo

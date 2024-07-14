@@ -1,24 +1,24 @@
-import { Dialog, DialogTitle, DialogContent, Divider, Alert, Button } from '@mui/material';
+import { Dialog, DialogTitle, DialogContent, Divider, Alert, Button } from '@mui/material'
 
-import { useState } from 'react';
+import { useState } from 'react'
 
-import EntriesForm from './EntriesForm';
+import EntriesForm from './EntriesForm'
 
 interface Props {
   setDummy: React.Dispatch<React.SetStateAction<number>>
 }
 
-const EntriesModal = ({setDummy}: Props) => {
-  const [openModal, setOpenModal] = useState(false);
-  const [error, setError] = useState('');
+const EntriesModal = ({ setDummy }: Props) => {
+  const [openModal, setOpenModal] = useState(false)
+  const [error, setError] = useState('')
 
   const handleOpenModal = () => {
-    setOpenModal(true);
-  };
+    setOpenModal(true)
+  }
 
   const handleCloseModal = () => {
-    setOpenModal(false);
-  };
+    setOpenModal(false)
+  }
 
   return (
     <div>
@@ -27,16 +27,16 @@ const EntriesModal = ({setDummy}: Props) => {
         <DialogTitle>Add a new Entry</DialogTitle>
         <Divider />
         <DialogContent>
-          <EntriesForm 
-            handleCloseModal = {handleCloseModal} 
+          <EntriesForm
+            handleCloseModal = {handleCloseModal}
             setError={setError}
             setDummy={setDummy}
-            />
-            {error && <Alert severity="error">{error}</Alert>}
+          />
+          {error && <Alert severity="error">{error}</Alert>}
         </DialogContent>
-    </Dialog>
+      </Dialog>
     </div>
-  );
-};
+  )
+}
 
-export default EntriesModal;
+export default EntriesModal

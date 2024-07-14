@@ -1,20 +1,20 @@
-import { Box, Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material'
 
-import { HospitalEntry } from "../../types";
+import { HospitalEntry } from '../../types'
 
-import DisplayDiagnosisCodes from "./DisplayDiagnosisCodes";
+import DisplayDiagnosisCodes from './DisplayDiagnosisCodes'
 
-const HospitalEntryInfo = ({entry}: {entry: HospitalEntry}) => {
-  
+const HospitalEntryInfo = ({ entry }: {entry: HospitalEntry}) => {
+
   const containerStyle = {
     border: '1px solid black',
     padding: '10px',
     marginBottom: '10px'
-  };
+  }
 
   const itemsStyle = {
     marginBottom: '1px'
-  };
+  }
 
   return (
     <Box style = {containerStyle}>
@@ -28,7 +28,7 @@ const HospitalEntryInfo = ({entry}: {entry: HospitalEntry}) => {
         {entry.diagnosisCodes ? <DisplayDiagnosisCodes diagnosisCodes={entry.diagnosisCodes} /> : null}
       </div>
     </Box>
-  );
-};
+  )
+}
 
-export default HospitalEntryInfo;
+export default HospitalEntryInfo

@@ -1,53 +1,53 @@
-import { Button, Divider, Container, Typography, Alert } from '@mui/material';
+import { Button, Divider, Container, Typography, Alert } from '@mui/material'
 
-import { useState, useEffect } from "react";
-import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
+import { useState, useEffect } from 'react'
+import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom'
 
-import axios from "axios";
+import axios from 'axios'
 
-import { apiBaseUrl } from "./constants";
+import { apiBaseUrl } from './constants'
 
-import { Patient } from "./types";
+import { Patient } from './types'
 
-import patientService from "./services/patients";
+import patientService from './services/patients'
 
-import PatientListPage from "./components/PatientListPage";
-import SinglePatient from "./components/PatientListPage/SinglePatient";
+import PatientListPage from './components/PatientListPage'
+import SinglePatient from './components/PatientListPage/SinglePatient'
 
 const App = () => {
-  const [patients, setPatients] = useState<Patient[]>([]);
+  const [patients, setPatients] = useState<Patient[]>([])
 
   useEffect(() => {
-    void axios.get<void>(`${apiBaseUrl}/ping`);
+    void axios.get<void>(`${apiBaseUrl}/ping`)
 
     const fetchPatientList = async () => {
       try {
-        const patients = await patientService.getAll();
-        setPatients(patients);
+        const patients = await patientService.getAll()
+        setPatients(patients)
       } catch (error) {
         if (axios.isAxiosError(error)) {
-          console.log(error.response?.data);
+          console.log(error.response?.data)
         } else {
-          console.log('something went wrong');
-          }
+          console.log('something went wrong')
         }
-    };
-    void fetchPatientList();
-  }, []);
+      }
+    }
+    void fetchPatientList()
+  }, [])
 
   const failedToFetch = () => {
     return (
       <Alert severity="error" style={{ marginTop: '1em' }}>
         Failed to fetch data from the backend. Please check your connection or try again later.
       </Alert>
-    );
-  };
-  
+    )
+  }
+
   return (
     <div className="App">
       <Router>
         <Container>
-          <Typography variant="h3" style={{ marginBottom: "0.5em" }}>
+          <Typography variant="h3" style={{ marginBottom: '0.5em' }}>
             Patientor
           </Typography>
           <Button component={Link} to="/" variant="contained" color="primary">
@@ -62,7 +62,7 @@ const App = () => {
         </Container>
       </Router>
     </div>
-  );
-};
+  )
+}
 
-export default App;
+export default App

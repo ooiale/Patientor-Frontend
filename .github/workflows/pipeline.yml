@@ -1,0 +1,26 @@
+name: Build and test
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "latest"
+      - name: Install dependencies
+        run: npm install
+      - name: Check style with lint
+        run: npm run eslint
+      - name: production build
+        run: npm run build
+      - name: Acquire browser for playwright
+        run: npx playwright install 
+      - name: Run Playwright tests
+        run: npm run test
