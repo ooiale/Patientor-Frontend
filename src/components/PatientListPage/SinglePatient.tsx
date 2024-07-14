@@ -17,11 +17,6 @@ const SinglePatient =  () => {
 
   const id = useParams().id as string
 
-<<<<<<< HEAD
-  console.log('RENDER')
-
-=======
->>>>>>> dd886163832a984108262711612848a1d2518927
   useEffect(() => {
     const fetchPatient = async () => {
       try {
@@ -67,8 +62,4 @@ const SinglePatient =  () => {
   )
 }
 
-<<<<<<< HEAD
-export default SinglePatient
-=======
 export default SinglePatient;
->>>>>>> dd886163832a984108262711612848a1d2518927
