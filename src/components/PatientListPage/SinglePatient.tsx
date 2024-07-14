@@ -62,4 +62,4 @@ const SinglePatient =  () => {
   )
 }
 
-export default SinglePatient;
+export default SinglePatient
